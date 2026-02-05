@@ -12,7 +12,7 @@ Where AI saved time.
 
 At least one AI bug you identified and how you fixed it.
 
-- The code successfully allowed me to crate new decks, but it did not successfully implement the new card feature. I could use the form to create new cards, but the cards were not generated and saved.
+- The code successfully allowed me to create new decks, but it did not successfully implement the new card feature. I could use the form to create new cards, but the cards were not generated and saved. I identified the bug, but I was not able to correct it in the alotted time.
 
 A code snippet you refactored for clarity.
 
