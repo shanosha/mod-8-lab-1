@@ -1,0 +1,107 @@
+:root{
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#2563eb;
+  --radius:10px;
+  --sidebar-width:260px;
+  color-scheme: light dark;
+}
+*{box-sizing:border-box}
+html,body,#app{height:100%}
+body{
+  margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background:var(--bg);color:#0f172a;
+}
+.app-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:linear-gradient(#fff, #f3f4f6);box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.brand h1{margin:0;font-size:1.25rem}
+.layout{display:grid;grid-template-columns:var(--sidebar-width) 1fr;gap:16px;max-width:1100px;margin:20px auto;padding:0 12px}
+.sidebar{background:transparent;padding:8px}
+.sidebar-top{display:flex;flex-direction:column;gap:8px}
+.sidebar-title{margin:0;font-size:1rem}
+.decks-list{list-style:none;padding:0;margin:8px 0;display:flex;flex-direction:column;gap:6px;max-height:60vh;overflow:auto}
+.decks-list button{width:100%;text-align:left;padding:8px 10px;border-radius:8px;border:0;background:transparent}
+.decks-list button[aria-current="true"]{background:linear-gradient(90deg,#eef2ff,#f8fafc);outline:2px solid rgba(37,99,235,.12)}
+.main{background:transparent;padding:8px}
+.deck-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.deck-actions{display:flex;gap:8px;align-items:center}
+.header-actions{display:flex;gap:8px;align-items:center}
+.card-scene{perspective:1200px;display:flex;align-items:center;justify-content:center;height:320px;margin:18px 0}
+.card{width:min(520px,88vw);height:260px;border-radius:var(--radius);background:var(--card);display:block;position:relative;transform-style:preserve-3d;transition:transform .6s ease;box-shadow:0 8px 20px rgba(2,6,23,.08);}
+.card-face{position:absolute;inset:0;padding:20px;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.card-front{transform:rotateY(0deg)}
+.card-back{transform:rotateY(180deg);background:linear-gradient(180deg,#f8fafc,#eef2ff)}
+.card.is-flipped{transform:rotateY(180deg)}
+.controls{display:flex;gap:10px;justify-content:center}
+.btn{background:transparent;border:1px solid rgba(15,23,42,.08);padding:8px 12px;border-radius:8px;cursor:pointer}
+.btn.primary{background:var(--accent);color:#fff;border:0}
+.input{padding:8px;border-radius:8px;border:1px solid #e6e7eb}
+.empty{color:var(--muted);text-align:center;margin-top:8px}
+
+.cards-list-section{margin-top:18px}
+.cards-list{list-style:none;padding:0;margin:8px 0;display:flex;flex-direction:column;gap:8px}
+.card-row{display:flex;align-items:center;justify-content:space-between;padding:8px;border-radius:8px;background:linear-gradient(180deg,#fff,#fbfbfd);border:1px solid #eef2f6}
+.card-row .meta{color:var(--muted);font-size:0.9rem}
+.card-row button{margin-left:8px}
+.deck-stats{font-size:0.9rem;color:var(--muted);margin-left:12px}
+.modal{position:fixed;inset:0;background:rgba(2,6,23,.45);display:flex;align-items:center;justify-content:center;padding:12px}
+.modal-content{background:var(--card);padding:16px;border-radius:10px;min-width:320px;max-width:700px;box-shadow:0 10px 30px rgba(2,6,23,.12)}
+.modal .modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+.sr-only{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+
+/* Responsive */
+@media (max-width:800px){
+  .layout{grid-template-columns:1fr;}
+  .sidebar{order:2}
+  .main{order:1}
+  .card{height:220px}
+}
+
+/* Focus styles */
+button:focus,input:focus,textarea:focus{outline:3px solid rgba(37,99,235,.12);outline-offset:2px}
+
+/* Utility */
+.deck-actions .input{width:200px}
+.sidebar-empty{color:var(--muted);padding:12px}
+/* Write base styles with CSS variables and responsive grid. */
+ :root {
+    --primary-color: #4CAF50;
+    --secondary-color: #FF5722;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --font-family: 'Arial, sans-serif';
+    --padding: 16px;
+    --margin: 16px;
+    --border-radius: 8px;
+}
+/* create ALL the other CSS needed for the flashcards app below */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--padding);
+}
+.sidebar {
+    width: 250px;
+    background-color: #e0e0e0;
+    padding: var(--padding);
+}
+.main-content {
+    margin-left: 250px;
+    padding: var(--padding);
+}
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: var(--padding);
+}

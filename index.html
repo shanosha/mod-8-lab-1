@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Flashcards App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <div class="brand">
+          <h1>Flashcards</h1>
+          <small class="sr-only">Study app — create decks and cards</small>
+        </div>
+        <div class="header-actions">
+          <button id="new-deck-btn" class="btn" aria-haspopup="dialog">
+            New Deck
+          </button>
+          <button id="export-btn" class="btn">Export</button>
+          <button id="import-btn" class="btn">Import</button>
+          <input
+            id="import-file"
+            type="file"
+            accept="application/json"
+            style="display: none"
+          />
+        </div>
+      </header>
+
+      <div class="layout">
+        <nav class="sidebar" aria-label="Decks">
+          <div class="sidebar-top">
+            <h2 class="sidebar-title">Decks</h2>
+            <input
+              id="deck-filter"
+              class="input"
+              placeholder="Filter decks..."
+              aria-label="Filter decks"
+            />
+          </div>
+          <ul id="decks-list" class="decks-list" role="list">
+            <!-- Deck items rendered here -->
+          </ul>
+          <div class="sidebar-empty" id="no-decks-msg">
+            No decks yet — create one.
+          </div>
+        </nav>
+
+        <main class="main" id="main" tabindex="-1">
+          <section class="deck-view" aria-live="polite">
+            <header class="deck-header">
+              <h2 id="deck-title">Select a deck</h2>
+              <div class="deck-stats" id="deck-stats">&nbsp;</div>
+              <div class="deck-actions">
+                <input
+                  id="card-search"
+                  class="input"
+                  placeholder="Search cards..."
+                  aria-label="Search cards"
+                />
+                <button id="shuffle-btn" class="btn">Shuffle</button>
+                <button id="new-card-btn" class="btn">New Card</button>
+              </div>
+            </header>
+
+            <div class="study-area">
+              <div class="card-scene" id="card-scene">
+                <div class="card" id="study-card" aria-live="polite">
+                  <div class="card-face card-front" id="card-front">Front</div>
+                  <div class="card-face card-back" id="card-back">Back</div>
+                </div>
+              </div>
+
+              <div class="controls">
+                <button id="prev-btn" class="btn" aria-label="Previous card">
+                  ◀ Prev
+                </button>
+                <button id="flip-btn" class="btn" aria-label="Flip card">
+                  Flip
+                </button>
+                <button id="next-btn" class="btn" aria-label="Next card">
+                  Next ▶
+                </button>
+              </div>
+
+              <div
+                class="srs-controls"
+                style="
+                  display: flex;
+                  gap: 8px;
+                  justify-content: center;
+                  margin-top: 8px;
+                "
+              >
+                <button id="srs-again" class="btn">Again</button>
+                <button id="srs-good" class="btn">Good</button>
+                <button id="srs-easy" class="btn primary">Easy</button>
+              </div>
+
+              <div id="study-empty" class="empty">No cards to study.</div>
+            </div>
+
+            <section class="cards-list-section">
+              <h3>Cards</h3>
+              <ul id="cards-list" class="cards-list"></ul>
+              <div id="cards-empty" class="empty">No cards in this deck.</div>
+            </section>
+          </section>
+        </main>
+      </div>
+
+      <footer class="app-footer">
+        <p>Tip: use Space to flip, ← and → to navigate.</p>
+      </footer>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-root" aria-hidden="true"></div>
+
+    <template id="deck-modal-template">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <div class="modal-content">
+          <h3 id="modal-title">New Deck</h3>
+          <label for="deck-name">Deck name</label>
+          <input id="deck-name" class="input" />
+          <div class="modal-actions">
+            <button data-action="cancel" class="btn">Cancel</button>
+            <button data-action="save" class="btn primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <template id="card-modal-template">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="card-modal-title"
+      >
+        <div class="modal-content">
+          <h3 id="card-modal-title">New Card</h3>
+          <label for="card-front-input">Front</label>
+          <textarea id="card-front-input" rows="3"></textarea>
+          <label for="card-back-input">Back</label>
+          <textarea id="card-back-input" rows="3"></textarea>
+          <div class="modal-actions">
+            <button data-action="cancel" class="btn">Cancel</button>
+            <button data-action="save" class="btn primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
