@@ -16,6 +16,7 @@ At least one AI bug you identified and how you fixed it.
 
 A code snippet you refactored for clarity.
 
+- I added accessiblity with the code snippet below.
 ```
 <button id="prev-btn" class="btn" aria-label="Previous card">
 ```
