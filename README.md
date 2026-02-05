@@ -17,13 +17,14 @@ At least one AI bug you identified and how you fixed it.
 A code snippet you refactored for clarity.
 
 - I added accessiblity with the code snippet below.
+
 ```
 <button id="prev-btn" class="btn" aria-label="Previous card">
 ```
 
 One accessibility improvement you added.
 
-- In my review of the HTML code, I didnt' see any spots where additional aria tags were needed, but I used AI to review the code specifically for aria tags and it added additional tags to the "Previous Card", "Flip Card", and "Next Card" buttons.
+- In my review of the HTML code, I didn't see any spots where additional aria tags were needed, but I used AI to review the code specifically for aria tags and it added additional tags to the "Previous Card", "Flip Card", and "Next Card" buttons.
 
 What prompt changes improved AI output.
 
